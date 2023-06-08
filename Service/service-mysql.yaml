@@ -1,0 +1,60 @@
+﻿kind: Service
+apiVersion: v1
+metadata:
+  name: mysql
+  namespace: posh
+  uid: feafb7a0-44af-420b-b3f4-d8514533ccc7
+  resourceVersion: '16445637'
+  creationTimestamp: '2023-06-02T18:54:37Z'
+  labels:
+    template: mysql-persistent-template
+    template.openshift.io/template-instance-owner: ed71538f-a1fb-487e-9e6c-8e39d21c0ed4
+  annotations:
+    template.openshift.io/expose-uri: 'mysql://{.spec.clusterIP}:{.spec.ports[?(.name=="mysql")].port}'
+  managedFields:
+    - manager: openshift-controller-manager
+      operation: Update
+      apiVersion: v1
+      time: '2023-06-02T18:54:37Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:annotations':
+            .: {}
+            'f:template.openshift.io/expose-uri': {}
+          'f:labels':
+            .: {}
+            'f:template': {}
+            'f:template.openshift.io/template-instance-owner': {}
+        'f:spec':
+          'f:internalTrafficPolicy': {}
+          'f:ports':
+            .: {}
+            'k:{"port":3306,"protocol":"TCP"}':
+              .: {}
+              'f:name': {}
+              'f:port': {}
+              'f:protocol': {}
+              'f:targetPort': {}
+          'f:selector': {}
+          'f:sessionAffinity': {}
+          'f:type': {}
+spec:
+  clusterIP: 172.30.48.207
+  ipFamilies:
+    - IPv4
+  ports:
+    - name: mysql
+      protocol: TCP
+      port: 3306
+      targetPort: 3306
+  internalTrafficPolicy: Cluster
+  clusterIPs:
+    - 172.30.48.207
+  type: ClusterIP
+  ipFamilyPolicy: SingleStack
+  sessionAffinity: None
+  selector:
+    name: mysql
+status:
+  loadBalancer: {}

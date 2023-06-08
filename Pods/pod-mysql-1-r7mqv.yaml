@@ -1,0 +1,378 @@
+﻿kind: Pod
+apiVersion: v1
+metadata:
+  generateName: mysql-1-
+  annotations:
+    k8s.v1.cni.cncf.io/network-status: |-
+      [{
+          "name": "openshift-sdn",
+          "interface": "eth0",
+          "ips": [
+              "10.131.0.14"
+          ],
+          "default": true,
+          "dns": {}
+      }]
+    k8s.v1.cni.cncf.io/networks-status: |-
+      [{
+          "name": "openshift-sdn",
+          "interface": "eth0",
+          "ips": [
+              "10.131.0.14"
+          ],
+          "default": true,
+          "dns": {}
+      }]
+    kubernetes.io/limit-ranger: >-
+      LimitRanger plugin set: cpu request for container mysql; cpu limit for
+      container mysql
+    openshift.io/deployment-config.latest-version: '1'
+    openshift.io/deployment-config.name: mysql
+    openshift.io/deployment.name: mysql-1
+    openshift.io/scc: restricted
+  resourceVersion: '16445962'
+  name: mysql-1-r7mqv
+  uid: a904ddc2-b22b-4b6f-82a9-d9cb1bbdf5f8
+  creationTimestamp: '2023-06-02T18:54:44Z'
+  managedFields:
+    - manager: kube-controller-manager
+      operation: Update
+      apiVersion: v1
+      time: '2023-06-02T18:54:44Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:annotations':
+            .: {}
+            'f:openshift.io/deployment-config.latest-version': {}
+            'f:openshift.io/deployment-config.name': {}
+            'f:openshift.io/deployment.name': {}
+          'f:generateName': {}
+          'f:labels':
+            .: {}
+            'f:deployment': {}
+            'f:deploymentconfig': {}
+            'f:name': {}
+          'f:ownerReferences':
+            .: {}
+            'k:{"uid":"491a3984-b5df-4d13-9e00-0226d5cc003b"}': {}
+        'f:spec':
+          'f:containers':
+            'k:{"name":"mysql"}':
+              'f:image': {}
+              'f:volumeMounts':
+                .: {}
+                'k:{"mountPath":"/var/lib/mysql/data"}':
+                  .: {}
+                  'f:mountPath': {}
+                  'f:name': {}
+              'f:terminationMessagePolicy': {}
+              .: {}
+              'f:resources':
+                .: {}
+                'f:limits':
+                  .: {}
+                  'f:memory': {}
+                'f:requests':
+                  .: {}
+                  'f:memory': {}
+              'f:livenessProbe':
+                .: {}
+                'f:exec':
+                  .: {}
+                  'f:command': {}
+                'f:failureThreshold': {}
+                'f:initialDelaySeconds': {}
+                'f:periodSeconds': {}
+                'f:successThreshold': {}
+                'f:timeoutSeconds': {}
+              'f:env':
+                .: {}
+                'k:{"name":"MYSQL_DATABASE"}':
+                  .: {}
+                  'f:name': {}
+                  'f:valueFrom':
+                    .: {}
+                    'f:secretKeyRef': {}
+                'k:{"name":"MYSQL_PASSWORD"}':
+                  .: {}
+                  'f:name': {}
+                  'f:valueFrom':
+                    .: {}
+                    'f:secretKeyRef': {}
+                'k:{"name":"MYSQL_ROOT_PASSWORD"}':
+                  .: {}
+                  'f:name': {}
+                  'f:valueFrom':
+                    .: {}
+                    'f:secretKeyRef': {}
+                'k:{"name":"MYSQL_USER"}':
+                  .: {}
+                  'f:name': {}
+                  'f:valueFrom':
+                    .: {}
+                    'f:secretKeyRef': {}
+              'f:readinessProbe':
+                .: {}
+                'f:exec':
+                  .: {}
+                  'f:command': {}
+                'f:failureThreshold': {}
+                'f:initialDelaySeconds': {}
+                'f:periodSeconds': {}
+                'f:successThreshold': {}
+                'f:timeoutSeconds': {}
+              'f:terminationMessagePath': {}
+              'f:imagePullPolicy': {}
+              'f:ports':
+                .: {}
+                'k:{"containerPort":3306,"protocol":"TCP"}':
+                  .: {}
+                  'f:containerPort': {}
+                  'f:protocol': {}
+              'f:name': {}
+          'f:dnsPolicy': {}
+          'f:enableServiceLinks': {}
+          'f:restartPolicy': {}
+          'f:schedulerName': {}
+          'f:securityContext': {}
+          'f:terminationGracePeriodSeconds': {}
+          'f:volumes':
+            .: {}
+            'k:{"name":"mysql-data"}':
+              .: {}
+              'f:name': {}
+              'f:persistentVolumeClaim':
+                .: {}
+                'f:claimName': {}
+    - manager: multus
+      operation: Update
+      apiVersion: v1
+      time: '2023-06-02T18:54:54Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:annotations':
+            'f:k8s.v1.cni.cncf.io/network-status': {}
+            'f:k8s.v1.cni.cncf.io/networks-status': {}
+      subresource: status
+    - manager: kubelet
+      operation: Update
+      apiVersion: v1
+      time: '2023-06-02T18:55:23Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:status':
+          'f:conditions':
+            'k:{"type":"ContainersReady"}':
+              .: {}
+              'f:lastProbeTime': {}
+              'f:lastTransitionTime': {}
+              'f:status': {}
+              'f:type': {}
+            'k:{"type":"Initialized"}':
+              .: {}
+              'f:lastProbeTime': {}
+              'f:lastTransitionTime': {}
+              'f:status': {}
+              'f:type': {}
+            'k:{"type":"Ready"}':
+              .: {}
+              'f:lastProbeTime': {}
+              'f:lastTransitionTime': {}
+              'f:status': {}
+              'f:type': {}
+          'f:containerStatuses': {}
+          'f:hostIP': {}
+          'f:phase': {}
+          'f:podIP': {}
+          'f:podIPs':
+            .: {}
+            'k:{"ip":"10.131.0.14"}':
+              .: {}
+              'f:ip': {}
+          'f:startTime': {}
+      subresource: status
+  namespace: posh
+  ownerReferences:
+    - apiVersion: v1
+      kind: ReplicationController
+      name: mysql-1
+      uid: 491a3984-b5df-4d13-9e00-0226d5cc003b
+      controller: true
+      blockOwnerDeletion: true
+  labels:
+    deployment: mysql-1
+    deploymentconfig: mysql
+    name: mysql
+spec:
+  restartPolicy: Always
+  serviceAccountName: default
+  imagePullSecrets:
+    - name: default-dockercfg-jbb9c
+  priority: 0
+  schedulerName: default-scheduler
+  enableServiceLinks: true
+  terminationGracePeriodSeconds: 30
+  preemptionPolicy: PreemptLowerPriority
+  nodeName: na410r-7bqzt-worker-0-fdtsc
+  securityContext:
+    seLinuxOptions:
+      level: 's0:c46,c0'
+    fsGroup: 1002070000
+  containers:
+    - resources:
+        limits:
+          cpu: 1500m
+          memory: 512Mi
+        requests:
+          cpu: 5m
+          memory: 512Mi
+      readinessProbe:
+        exec:
+          command:
+            - /bin/sh
+            - '-i'
+            - '-c'
+            - MYSQL_PWD="$MYSQL_PASSWORD" mysqladmin -u $MYSQL_USER ping
+        initialDelaySeconds: 5
+        timeoutSeconds: 1
+        periodSeconds: 10
+        successThreshold: 1
+        failureThreshold: 3
+      terminationMessagePath: /dev/termination-log
+      name: mysql
+      livenessProbe:
+        exec:
+          command:
+            - /bin/sh
+            - '-i'
+            - '-c'
+            - MYSQL_PWD="$MYSQL_PASSWORD" mysqladmin -u $MYSQL_USER ping
+        initialDelaySeconds: 30
+        timeoutSeconds: 1
+        periodSeconds: 10
+        successThreshold: 1
+        failureThreshold: 3
+      env:
+        - name: MYSQL_USER
+          valueFrom:
+            secretKeyRef:
+              name: mysql
+              key: database-user
+        - name: MYSQL_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: mysql
+              key: database-password
+        - name: MYSQL_ROOT_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: mysql
+              key: database-root-password
+        - name: MYSQL_DATABASE
+          valueFrom:
+            secretKeyRef:
+              name: mysql
+              key: database-name
+      securityContext:
+        capabilities:
+          drop:
+            - KILL
+            - MKNOD
+            - SETGID
+            - SETUID
+        runAsUser: 1002070000
+      ports:
+        - containerPort: 3306
+          protocol: TCP
+      imagePullPolicy: IfNotPresent
+      volumeMounts:
+        - name: mysql-data
+          mountPath: /var/lib/mysql/data
+        - name: kube-api-access-zftkr
+          readOnly: true
+          mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+      terminationMessagePolicy: File
+      image: >-
+        image-registry.openshift-image-registry.svc:5000/openshift/mysql@sha256:de0f53898eb889a8d977b21ac161d4b7fd64d08b880ba5524e6ec82242d4de9c
+  serviceAccount: default
+  volumes:
+    - name: mysql-data
+      persistentVolumeClaim:
+        claimName: mysql
+    - name: kube-api-access-zftkr
+      projected:
+        sources:
+          - serviceAccountToken:
+              expirationSeconds: 3607
+              path: token
+          - configMap:
+              name: kube-root-ca.crt
+              items:
+                - key: ca.crt
+                  path: ca.crt
+          - downwardAPI:
+              items:
+                - path: namespace
+                  fieldRef:
+                    apiVersion: v1
+                    fieldPath: metadata.namespace
+          - configMap:
+              name: openshift-service-ca.crt
+              items:
+                - key: service-ca.crt
+                  path: service-ca.crt
+        defaultMode: 420
+  dnsPolicy: ClusterFirst
+  tolerations:
+    - key: node.kubernetes.io/not-ready
+      operator: Exists
+      effect: NoExecute
+      tolerationSeconds: 300
+    - key: node.kubernetes.io/unreachable
+      operator: Exists
+      effect: NoExecute
+      tolerationSeconds: 300
+    - key: node.kubernetes.io/memory-pressure
+      operator: Exists
+      effect: NoSchedule
+status:
+  phase: Running
+  conditions:
+    - type: Initialized
+      status: 'True'
+      lastProbeTime: null
+      lastTransitionTime: '2023-06-02T18:54:45Z'
+    - type: Ready
+      status: 'True'
+      lastProbeTime: null
+      lastTransitionTime: '2023-06-02T18:55:23Z'
+    - type: ContainersReady
+      status: 'True'
+      lastProbeTime: null
+      lastTransitionTime: '2023-06-02T18:55:23Z'
+    - type: PodScheduled
+      status: 'True'
+      lastProbeTime: null
+      lastTransitionTime: '2023-06-02T18:54:45Z'
+  hostIP: 10.0.1.203
+  podIP: 10.131.0.14
+  podIPs:
+    - ip: 10.131.0.14
+  startTime: '2023-06-02T18:54:45Z'
+  containerStatuses:
+    - restartCount: 0
+      started: true
+      ready: true
+      name: mysql
+      state:
+        running:
+          startedAt: '2023-06-02T18:55:01Z'
+      imageID: >-
+        image-registry.openshift-image-registry.svc:5000/openshift/mysql@sha256:de0f53898eb889a8d977b21ac161d4b7fd64d08b880ba5524e6ec82242d4de9c
+      image: >-
+        image-registry.openshift-image-registry.svc:5000/openshift/mysql@sha256:de0f53898eb889a8d977b21ac161d4b7fd64d08b880ba5524e6ec82242d4de9c
+      lastState: {}
+      containerID: 'cri-o://99d332cd7a243eaed6f42e11c5c549915b942e60e131b0c281e7116fe83564cb'
+  qosClass: Burstable

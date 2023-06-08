@@ -1,0 +1,332 @@
+﻿kind: Pod
+apiVersion: v1
+metadata:
+  name: tempconverter-2-qdt67
+  generateName: tempconverter-2-
+  namespace: posh
+  uid: 205fb827-c210-4398-834c-6c4dad21aaea
+  resourceVersion: '17439181'
+  creationTimestamp: '2023-06-04T13:33:08Z'
+  labels:
+    app: tempconverter
+    deployment: tempconverter-2
+    deploymentconfig: tempconverter
+  annotations:
+    k8s.v1.cni.cncf.io/network-status: |-
+      [{
+          "name": "openshift-sdn",
+          "interface": "eth0",
+          "ips": [
+              "10.131.1.170"
+          ],
+          "default": true,
+          "dns": {}
+      }]
+    k8s.v1.cni.cncf.io/networks-status: |-
+      [{
+          "name": "openshift-sdn",
+          "interface": "eth0",
+          "ips": [
+              "10.131.1.170"
+          ],
+          "default": true,
+          "dns": {}
+      }]
+    kubernetes.io/limit-ranger: >-
+      LimitRanger plugin set: cpu, memory request for container tempconverter;
+      cpu, memory limit for container tempconverter
+    openshift.io/deployment-config.latest-version: '2'
+    openshift.io/deployment-config.name: tempconverter
+    openshift.io/deployment.name: tempconverter-2
+    openshift.io/generated-by: OpenShiftWebConsole
+    openshift.io/scc: restricted
+  ownerReferences:
+    - apiVersion: v1
+      kind: ReplicationController
+      name: tempconverter-2
+      uid: 9a31be12-7def-4865-9f41-fc32b7455fc5
+      controller: true
+      blockOwnerDeletion: true
+  managedFields:
+    - manager: kube-controller-manager
+      operation: Update
+      apiVersion: v1
+      time: '2023-06-04T13:33:08Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:annotations':
+            .: {}
+            'f:openshift.io/deployment-config.latest-version': {}
+            'f:openshift.io/deployment-config.name': {}
+            'f:openshift.io/deployment.name': {}
+            'f:openshift.io/generated-by': {}
+          'f:generateName': {}
+          'f:labels':
+            .: {}
+            'f:app': {}
+            'f:deployment': {}
+            'f:deploymentconfig': {}
+          'f:ownerReferences':
+            .: {}
+            'k:{"uid":"9a31be12-7def-4865-9f41-fc32b7455fc5"}': {}
+        'f:spec':
+          'f:containers':
+            'k:{"name":"tempconverter"}':
+              .: {}
+              'f:env':
+                .: {}
+                'k:{"name":"COLLEGE"}':
+                  .: {}
+                  'f:name': {}
+                  'f:valueFrom':
+                    .: {}
+                    'f:secretKeyRef': {}
+                'k:{"name":"DB_HOST"}':
+                  .: {}
+                  'f:name': {}
+                  'f:valueFrom':
+                    .: {}
+                    'f:secretKeyRef': {}
+                'k:{"name":"DB_NAME"}':
+                  .: {}
+                  'f:name': {}
+                  'f:valueFrom':
+                    .: {}
+                    'f:secretKeyRef': {}
+                'k:{"name":"DB_PASS"}':
+                  .: {}
+                  'f:name': {}
+                  'f:valueFrom':
+                    .: {}
+                    'f:secretKeyRef': {}
+                'k:{"name":"DB_USER"}':
+                  .: {}
+                  'f:name': {}
+                  'f:valueFrom':
+                    .: {}
+                    'f:secretKeyRef': {}
+                'k:{"name":"STUDENT"}':
+                  .: {}
+                  'f:name': {}
+                  'f:valueFrom':
+                    .: {}
+                    'f:secretKeyRef': {}
+              'f:image': {}
+              'f:imagePullPolicy': {}
+              'f:name': {}
+              'f:ports':
+                .: {}
+                'k:{"containerPort":5000,"protocol":"TCP"}':
+                  .: {}
+                  'f:containerPort': {}
+                  'f:protocol': {}
+              'f:resources': {}
+              'f:terminationMessagePath': {}
+              'f:terminationMessagePolicy': {}
+          'f:dnsPolicy': {}
+          'f:enableServiceLinks': {}
+          'f:restartPolicy': {}
+          'f:schedulerName': {}
+          'f:securityContext': {}
+          'f:terminationGracePeriodSeconds': {}
+    - manager: multus
+      operation: Update
+      apiVersion: v1
+      time: '2023-06-04T13:33:10Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:annotations':
+            'f:k8s.v1.cni.cncf.io/network-status': {}
+            'f:k8s.v1.cni.cncf.io/networks-status': {}
+      subresource: status
+    - manager: kubelet
+      operation: Update
+      apiVersion: v1
+      time: '2023-06-04T13:33:11Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:status':
+          'f:conditions':
+            'k:{"type":"ContainersReady"}':
+              .: {}
+              'f:lastProbeTime': {}
+              'f:lastTransitionTime': {}
+              'f:status': {}
+              'f:type': {}
+            'k:{"type":"Initialized"}':
+              .: {}
+              'f:lastProbeTime': {}
+              'f:lastTransitionTime': {}
+              'f:status': {}
+              'f:type': {}
+            'k:{"type":"Ready"}':
+              .: {}
+              'f:lastProbeTime': {}
+              'f:lastTransitionTime': {}
+              'f:status': {}
+              'f:type': {}
+          'f:containerStatuses': {}
+          'f:hostIP': {}
+          'f:phase': {}
+          'f:podIP': {}
+          'f:podIPs':
+            .: {}
+            'k:{"ip":"10.131.1.170"}':
+              .: {}
+              'f:ip': {}
+          'f:startTime': {}
+      subresource: status
+spec:
+  volumes:
+    - name: kube-api-access-5q5g6
+      projected:
+        sources:
+          - serviceAccountToken:
+              expirationSeconds: 3607
+              path: token
+          - configMap:
+              name: kube-root-ca.crt
+              items:
+                - key: ca.crt
+                  path: ca.crt
+          - downwardAPI:
+              items:
+                - path: namespace
+                  fieldRef:
+                    apiVersion: v1
+                    fieldPath: metadata.namespace
+          - configMap:
+              name: openshift-service-ca.crt
+              items:
+                - key: service-ca.crt
+                  path: service-ca.crt
+        defaultMode: 420
+  containers:
+    - name: tempconverter
+      image: >-
+        image-registry.openshift-image-registry.svc:5000/posh/tempconverter@sha256:c24c0e5d37c01ae37e55077088757f0b26f4e41211b48af3b387e414fb2f3564
+      ports:
+        - containerPort: 5000
+          protocol: TCP
+      env:
+        - name: DB_USER
+          valueFrom:
+            secretKeyRef:
+              name: tempconverter
+              key: DB_USER
+        - name: DB_NAME
+          valueFrom:
+            secretKeyRef:
+              name: tempconverter
+              key: DB_NAME
+        - name: DB_HOST
+          valueFrom:
+            secretKeyRef:
+              name: tempconverter
+              key: DB_HOST
+        - name: DB_PASS
+          valueFrom:
+            secretKeyRef:
+              name: tempconverter
+              key: DB_PASS
+        - name: STUDENT
+          valueFrom:
+            secretKeyRef:
+              name: tempconverter
+              key: STUDENT
+        - name: COLLEGE
+          valueFrom:
+            secretKeyRef:
+              name: tempconverter
+              key: COLLEGE
+      resources:
+        limits:
+          cpu: 1500m
+          memory: 2Gi
+        requests:
+          cpu: 5m
+          memory: 50Mi
+      volumeMounts:
+        - name: kube-api-access-5q5g6
+          readOnly: true
+          mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      imagePullPolicy: IfNotPresent
+      securityContext:
+        capabilities:
+          drop:
+            - KILL
+            - MKNOD
+            - SETGID
+            - SETUID
+        runAsUser: 1002070000
+  restartPolicy: Always
+  terminationGracePeriodSeconds: 30
+  dnsPolicy: ClusterFirst
+  serviceAccountName: default
+  serviceAccount: default
+  nodeName: na410r-7bqzt-worker-0-fdtsc
+  securityContext:
+    seLinuxOptions:
+      level: 's0:c46,c0'
+    fsGroup: 1002070000
+  imagePullSecrets:
+    - name: default-dockercfg-jbb9c
+  schedulerName: default-scheduler
+  tolerations:
+    - key: node.kubernetes.io/not-ready
+      operator: Exists
+      effect: NoExecute
+      tolerationSeconds: 300
+    - key: node.kubernetes.io/unreachable
+      operator: Exists
+      effect: NoExecute
+      tolerationSeconds: 300
+    - key: node.kubernetes.io/memory-pressure
+      operator: Exists
+      effect: NoSchedule
+  priority: 0
+  enableServiceLinks: true
+  preemptionPolicy: PreemptLowerPriority
+status:
+  phase: Running
+  conditions:
+    - type: Initialized
+      status: 'True'
+      lastProbeTime: null
+      lastTransitionTime: '2023-06-04T13:33:08Z'
+    - type: Ready
+      status: 'True'
+      lastProbeTime: null
+      lastTransitionTime: '2023-06-04T13:33:11Z'
+    - type: ContainersReady
+      status: 'True'
+      lastProbeTime: null
+      lastTransitionTime: '2023-06-04T13:33:11Z'
+    - type: PodScheduled
+      status: 'True'
+      lastProbeTime: null
+      lastTransitionTime: '2023-06-04T13:33:08Z'
+  hostIP: 10.0.1.203
+  podIP: 10.131.1.170
+  podIPs:
+    - ip: 10.131.1.170
+  startTime: '2023-06-04T13:33:08Z'
+  containerStatuses:
+    - name: tempconverter
+      state:
+        running:
+          startedAt: '2023-06-04T13:33:10Z'
+      lastState: {}
+      ready: true
+      restartCount: 0
+      image: >-
+        image-registry.openshift-image-registry.svc:5000/posh/tempconverter@sha256:c24c0e5d37c01ae37e55077088757f0b26f4e41211b48af3b387e414fb2f3564
+      imageID: >-
+        image-registry.openshift-image-registry.svc:5000/posh/tempconverter@sha256:c24c0e5d37c01ae37e55077088757f0b26f4e41211b48af3b387e414fb2f3564
+      containerID: 'cri-o://0bf174b19a62d8e09528760dbaeb28d9cfcb6c553b12c297d6eeec6b1dd939bf'
+      started: true
+  qosClass: Burstable

@@ -1,0 +1,76 @@
+﻿kind: ImageStream
+apiVersion: image.openshift.io/v1
+metadata:
+  annotations:
+    openshift.io/image.dockerRepositoryCheck: '2023-06-04T13:28:41Z'
+  resourceVersion: '17437245'
+  name: tempconverter
+  uid: 1ff8bb96-d3de-4f02-af88-5aab6653605e
+  creationTimestamp: '2023-06-04T13:28:41Z'
+  generation: 2
+  managedFields:
+    - manager: Mozilla
+      operation: Update
+      apiVersion: image.openshift.io/v1
+      time: '2023-06-04T13:28:41Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:labels':
+            .: {}
+            'f:app': {}
+            'f:app.kubernetes.io/component': {}
+            'f:app.kubernetes.io/instance': {}
+            'f:app.kubernetes.io/name': {}
+            'f:app.kubernetes.io/part-of': {}
+        'f:spec':
+          'f:tags':
+            .: {}
+            'k:{"name":"dev"}':
+              .: {}
+              'f:annotations':
+                .: {}
+                'f:openshift.io/generated-by': {}
+                'f:openshift.io/imported-from': {}
+              'f:from': {}
+              'f:generation': {}
+              'f:importPolicy': {}
+              'f:name': {}
+              'f:referencePolicy':
+                .: {}
+                'f:type': {}
+  namespace: posh
+  labels:
+    app: tempconverter
+    app.kubernetes.io/component: tempconverter
+    app.kubernetes.io/instance: tempconverter
+    app.kubernetes.io/name: tempconverter
+    app.kubernetes.io/part-of: tempconverter-app
+spec:
+  lookupPolicy:
+    local: false
+  tags:
+    - name: dev
+      annotations:
+        openshift.io/generated-by: OpenShiftWebConsole
+        openshift.io/imported-from: 'docker.io/ibilic1/tempconverter:dev'
+      from:
+        kind: DockerImage
+        name: 'docker.io/ibilic1/tempconverter:dev'
+      generation: 2
+      importPolicy: {}
+      referencePolicy:
+        type: Local
+status:
+  dockerImageRepository: 'image-registry.openshift-image-registry.svc:5000/posh/tempconverter'
+  publicDockerImageRepository: >-
+    default-route-openshift-image-registry.apps.na410r.prod.ole.redhat.com/posh/tempconverter
+  tags:
+    - tag: dev
+      items:
+        - created: '2023-06-04T13:28:41Z'
+          dockerImageReference: >-
+            docker.io/ibilic1/tempconverter@sha256:c24c0e5d37c01ae37e55077088757f0b26f4e41211b48af3b387e414fb2f3564
+          image: >-
+            sha256:c24c0e5d37c01ae37e55077088757f0b26f4e41211b48af3b387e414fb2f3564
+          generation: 2

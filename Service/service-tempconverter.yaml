@@ -1,0 +1,69 @@
+﻿kind: Service
+apiVersion: v1
+metadata:
+  name: tempconverter
+  namespace: posh
+  uid: 6d3bd019-a3bb-4652-9bf8-60c194ed2839
+  resourceVersion: '17437267'
+  creationTimestamp: '2023-06-04T13:28:45Z'
+  labels:
+    app: tempconverter
+    app.kubernetes.io/component: tempconverter
+    app.kubernetes.io/instance: tempconverter
+    app.kubernetes.io/name: tempconverter
+    app.kubernetes.io/part-of: tempconverter-app
+    app.openshift.io/runtime-version: dev
+  annotations:
+    openshift.io/generated-by: OpenShiftWebConsole
+  managedFields:
+    - manager: Mozilla
+      operation: Update
+      apiVersion: v1
+      time: '2023-06-04T13:28:45Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:annotations':
+            .: {}
+            'f:openshift.io/generated-by': {}
+          'f:labels':
+            .: {}
+            'f:app': {}
+            'f:app.kubernetes.io/component': {}
+            'f:app.kubernetes.io/instance': {}
+            'f:app.kubernetes.io/name': {}
+            'f:app.kubernetes.io/part-of': {}
+            'f:app.openshift.io/runtime-version': {}
+        'f:spec':
+          'f:internalTrafficPolicy': {}
+          'f:ports':
+            .: {}
+            'k:{"port":5000,"protocol":"TCP"}':
+              .: {}
+              'f:name': {}
+              'f:port': {}
+              'f:protocol': {}
+              'f:targetPort': {}
+          'f:selector': {}
+          'f:sessionAffinity': {}
+          'f:type': {}
+spec:
+  clusterIP: 172.30.103.243
+  ipFamilies:
+    - IPv4
+  ports:
+    - name: 5000-tcp
+      protocol: TCP
+      port: 5000
+      targetPort: 5000
+  internalTrafficPolicy: Cluster
+  clusterIPs:
+    - 172.30.103.243
+  type: ClusterIP
+  ipFamilyPolicy: SingleStack
+  sessionAffinity: None
+  selector:
+    app: tempconverter
+    deploymentconfig: tempconverter
+status:
+  loadBalancer: {}
